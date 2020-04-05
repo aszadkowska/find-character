@@ -83,7 +83,7 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/aszadkowska/find-character/readme.md">Documentation</a>
+                    <a href="https://github.com/aszadkowska/find-character/blob/master/readme.md">Documentation</a>
                 </div>
             </div>
         </div>
