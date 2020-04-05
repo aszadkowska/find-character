@@ -43,7 +43,7 @@ class PersonController extends Controller
         }
     }
 
-    public function getData(): JsonResponse
+    public function getData(Request $request): JsonResponse
     {
         if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
             $this->personService->insertData();
