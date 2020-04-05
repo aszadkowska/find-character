@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 Route::group([
     'middleware' => 'checkAuthenticationToken'
 ], function () {
@@ -11,6 +9,6 @@ Route::group([
 Route::group([
     'middleware' => 'checkToken'
 ], function () {
-    Route::get('/generate-token', 'PersonController@tokenGenerator');
-    Route::post('/insert', 'PersonController@insert');
+    Route::get('/generate-token', 'InitiateController@tokenGenerator');
+    Route::post('/insert', 'InitiateController@insert');
 });

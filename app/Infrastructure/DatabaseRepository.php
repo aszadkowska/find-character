@@ -7,9 +7,6 @@ use Illuminate\Database\Query\Builder;
 
 abstract class DatabaseRepository
 {
-    /** @var string */
-    protected static $connectionName;
-
     /** @var \Illuminate\Database\ConnectionInterface */
     protected $connection;
 

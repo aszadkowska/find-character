@@ -6,24 +6,23 @@ use GuzzleHttp\Client;
 
 class PeopleAPI
 {
-    /**
-     * @var Client
-     */
+    /** @var Client*/
     private $client;
 
-    private $apiURL = 'https://swapi.co';
+    /** @var string*/
+    private $baseApiUrl = 'https://swapi.co';
 
     public function __construct(Client $client)
     {
-        $this->client = new Client(['base_uri' => $this->apiURL]);
+        $this->client = new Client(['base_uri' => $this->baseApiUrl]);
     }
 
-    public function getPeople()
+    public function getPeople(): array
     {
         $page = 1;
         $response = [];
 
-        while ($page < $this->checkNumberOfIterations() || $page < 10) {
+        while ($page < $this->getNumberOfPage() || $page < 10) {
             $response = array_merge($response, json_decode(
                 $this->client->get('/api/people/?page=' . $page . '')->getBody(),
                 true
@@ -35,7 +34,7 @@ class PeopleAPI
         return $response;
     }
 
-    protected function checkNumberOfIterations(): int
+    protected function getNumberOfPage(): int
     {
         $response = json_decode($this->client->get('/api/people/')->getBody(), true);
 

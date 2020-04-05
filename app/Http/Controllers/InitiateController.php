@@ -21,7 +21,7 @@ class InitiateController extends Controller
     {
         $this->personService->insert();
 
-        return response()->json(['success' => 'Records loaded'], 200);
+        return response()->json(['success' => 'Records imported'], 200);
     }
 
     public function delete(Request $request): JsonResponse
