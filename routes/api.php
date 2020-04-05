@@ -3,9 +3,14 @@
 use Illuminate\Http\Request;
 
 Route::group([
-    'middleware' => 'api'
+    'middleware' => 'checkAuthenticationToken'
+], function () {
+    Route::get('/person', 'PersonController@index');
+});
+
+Route::group([
+    'middleware' => 'checkToken'
 ], function () {
     Route::get('/generate-token', 'PersonController@tokenGenerator');
-    Route::get('/person', 'PersonController@index');
     Route::post('/insert', 'PersonController@insert');
 });
