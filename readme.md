@@ -24,32 +24,33 @@ Your authentication token
 ```php
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEiLCJuYW1lIjoiTWnFgmVnbyBkbmlhIn0.qqaHR_nnL51A1wWL0SbsADqK2qzxI_HIKQvnfRvNs_E
 ```
-## Instalations
+## Install
 
-Welcome my friend. 
-
-Step 1
 ```php
 composer install
 ```
-Step 2
-```php
-php artisan key:generate
-```
-Step 3
+
 ```php
 cp .env.example .env
 ```
-Step 4
+
+```php
+php artisan key:generate
+```
+
 ```php
 Complete your .env file - database connection
 ```
-Step 5
+
 ```php
 php artisan migrate
 ```
 
+```php
+php artisan serve
+```
+
 In .env you can find
 
-VALID_TOKEN = authentication token to finding chracter by entering name
+VALID_TOKEN = authentication token 
 
