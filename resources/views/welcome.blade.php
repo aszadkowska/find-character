@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="m-b-md">
-                    Hello, welcome to my CharacterAPI to find out what you can do, click below:
+                    Hello, welcome to my PersonAPI to find out what you can do, click below:
                 </div>
 
                 <div class="links">
