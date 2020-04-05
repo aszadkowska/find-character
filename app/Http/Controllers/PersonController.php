@@ -56,7 +56,7 @@ class PersonController extends Controller
         ], 401);
     }
 
-    public function deleteData(): JsonResponse
+    public function deleteData(Request $request): JsonResponse
     {
         if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
             $this->personService->deleteData();
