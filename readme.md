@@ -7,7 +7,7 @@ PersonAPI is your own endpoint to find a person by entering the name, like this:
 /api/person?name={name}
 ```
 
-so if you are looking for Chewbacca you're address should looks like:
+so if you are looking for Chewbacca your address should looks like:
 
 ```php
 /api/person?name=Chewbacca
