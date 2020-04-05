@@ -1,16 +1,16 @@
 
 ## About
 
-CharacterAPI is your own endpoint to find a person by entering the name, like this:
+PersonAPI is your own endpoint to find a person by entering the name, like this:
 
 ```php
-/api/characters?name={name}
+/api/person?name={name}
 ```
 
 so if you are looking for Chewbacca you're address should looks like:
 
 ```php
-/api/characters?name=Chewbacca
+/api/person?name=Chewbacca
 ```
 
 You can search for your character with using tools e.g Postman, Boomerangapi, because you have to provide valid token in header.

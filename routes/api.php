@@ -6,6 +6,6 @@ Route::group([
     'middleware' => 'api'
 ], function () {
     Route::get('/generate-token', 'PersonController@tokenGenerator');
-    Route::get('/characters', 'PersonController@index');
+    Route::get('/person', 'PersonController@index');
     Route::post('/insert', 'PersonController@insert');
 });
