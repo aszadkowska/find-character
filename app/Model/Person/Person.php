@@ -2,6 +2,8 @@
 
 namespace App\Model\Person;
 
+use DateTime;
+
 class Person
 {
     /** @var string */
@@ -134,34 +136,34 @@ class Person
         return $this->homeworld;
     }
 
-    public function films(): array
+    public function films(): string
     {
-        return $this->films;
+        return json_encode($this->films);
     }
 
-    public function species(): array
+    public function species(): string
     {
-        return $this->species;
+        return json_encode($this->species);
     }
 
-    public function vehicles(): array
+    public function vehicles(): string
     {
-        return $this->vehicles;
+        return json_encode($this->vehicles);
     }
 
-    public function starships(): array
+    public function starships(): string
     {
-        return $this->starships;
+        return json_encode($this->starships);
     }
 
-    public function created(): string
+    public function created(): DateTime
     {
-        return $this->created;
+        return date_create($this->created);
     }
 
-    public function edited(): string
+    public function edited(): DateTime
     {
-        return $this->edited;
+        return date_create($this->edited);
     }
 
     public function url(): string

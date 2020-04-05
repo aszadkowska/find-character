@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Person\People;
-use App\Services\PersonNameService;
+use App\Services\PersonService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -12,13 +12,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class PersonController extends Controller
 {
-    /** @var PersonNameService */
+    /** @var PersonService */
     protected $personService;
 
     /** @var People */
-    private $people;
+    protected $people;
 
-    public function __construct(PersonNameService $personService, People $people)
+    public function __construct(PersonService $personService, People $people)
     {
         $this->personService = $personService;
         $this->people = $people;
@@ -30,17 +30,34 @@ class PersonController extends Controller
             'name' => 'required|string|max:255',
         ]);
 
-        return response()->json($this->people->findByName($request->get('name')));
+        if ($request->bearerToken() === env('VALID_TOKEN')) {
+            $person = $this->people->findByName($request->get('name'));
+
+            return $person
+                ? response()->json($person)
+                : response()->json([
+                    'message' => 'Person not found'
+                ], 404);
+        } else {
+            return response()->json(['message' => 'Unauthorized'], 401);
+        }
     }
 
-    public function getData()
+    public function getData(): JsonResponse
     {
-        $this->personService->insertData();
+        if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
+            $this->personService->insertData();
+
+            return response()->json(['success' => 'Records loaded'], 200);
+        }
+
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
     }
 
     public function tokenGenerator()
     {
-        $token = $request->bearerToken();
         return str_random(32);
     }
 }

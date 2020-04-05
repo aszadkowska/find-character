@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\Model\Person\People;
-use App\Repositories\PersonNameRepository;
+use App\Infrastructure\Person\PersonRepository;
 use Illuminate\Support\ServiceProvider;
 
 class PersonServiceProvider extends ServiceProvider
@@ -26,7 +26,7 @@ class PersonServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            People::class, PersonNameRepository::class
+            People::class, PersonRepository::class
         );
     }
 }

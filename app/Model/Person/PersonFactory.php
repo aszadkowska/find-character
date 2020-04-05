@@ -23,8 +23,8 @@ class PersonFactory implements Factory
             $data['species'],
             $data['vehicles'],
             $data['starships'],
-            $data['created'],
-            $data['edited'],
+            date('Y-m-d H:i:s', strtotime($data['created'])),
+            date('Y-m-d H:i:s', strtotime($data['edited'])),
             $data['url']
         );
     }

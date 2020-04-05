@@ -1,13 +1,12 @@
 <?php
 
-
-namespace App\Repositories;
+namespace App\Infrastructure\Person;
 
 use App\Infrastructure\DatabaseRepository;
 use App\Model\Person\People;
 use App\Model\Person\Person;
 
-class PersonNameRepository extends DatabaseRepository implements People
+class PersonRepository extends DatabaseRepository implements People
 {
     private const TABLE_NAME = 'people';
 
@@ -30,12 +29,12 @@ class PersonNameRepository extends DatabaseRepository implements People
                 'birthYear' => $data->birthYear(),
                 'gender' => $data->gender(),
                 'homeworld' => $data->homeworld(),
-//                'films' => $data->films(),
-//                'species' => $data->species(),
-//                'vehicles' => $data->vehicles(),
-//                'starships' => $data->starships(),
-//                'created' => $data->created(),
-//                'edited' => $data->edited(),
+                'films' => $data->films(),
+                'species' => $data->species(),
+                'vehicles' => $data->vehicles(),
+                'starships' => $data->starships(),
+                'created' => $data->created(),
+                'edited' => $data->edited(),
                 'url' => $data->url(),
             ]
         );

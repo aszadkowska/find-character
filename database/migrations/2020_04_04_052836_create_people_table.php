@@ -28,8 +28,8 @@ class CreatePeopleTable extends Migration
             $table->json('species')->nullable();
             $table->json('vehicles')->nullable();
             $table->json('starships')->nullable();
-            $table->timestamp('created')->nullable();
-            $table->timestamp('edited')->nullable();
+            $table->date('created')->nullable();
+            $table->date('edited')->nullable();
             $table->string('url');
             $table->timestamps();
         });
