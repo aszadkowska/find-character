@@ -7,5 +7,5 @@ Route::group([
 ], function () {
     Route::get('/generate-token', 'PersonController@tokenGenerator');
     Route::get('/characters', 'PersonController@index');
-    Route::post('/import', 'PersonController@import');
+    Route::post('/insert', 'PersonController@insert');
 });

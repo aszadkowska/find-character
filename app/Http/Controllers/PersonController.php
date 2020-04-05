@@ -43,10 +43,10 @@ class PersonController extends Controller
         }
     }
 
-    public function import(Request $request): JsonResponse
+    public function insert(Request $request): JsonResponse
     {
         if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
-            $this->personService->insertData();
+            $this->personService->insert();
 
             return response()->json(['success' => 'Records loaded'], 200);
         }
@@ -59,7 +59,7 @@ class PersonController extends Controller
     public function delete(Request $request): JsonResponse
     {
         if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
-            $this->personService->deleteData();
+            $this->personService->delete();
 
             return response()->json(['success' => 'Records removed'], 200);
         }

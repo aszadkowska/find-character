@@ -25,14 +25,14 @@ class PersonService
         $this->factory = $personFactory;
     }
 
-    public function insertData()
+    public function insert()
     {
         foreach ($this->personAPI->getPeople() as $person) {
             $this->people->insert($this->factory->create($person));
         }
     }
 
-    public function deleteData()
+    public function delete()
     {
         $this->people->delete();
     }
