@@ -56,6 +56,19 @@ class PersonController extends Controller
         ], 401);
     }
 
+    public function deleteData(): JsonResponse
+    {
+        if ($request->bearerToken() === env('VALID_TOKEN_ADMIN')) {
+            $this->personService->deleteData();
+
+            return response()->json(['success' => 'Records removed'], 200);
+        }
+
+        return response()->json([
+            'message' => 'Unauthorized'
+        ], 401);
+    }
+
     public function tokenGenerator()
     {
         return str_random(32);
